@@ -1,0 +1,15 @@
+SCRIPT_HOME=`pwd`/script
+
+tpe90dir='/Volumes/tpe90'
+
+alias tpe39='ssh nesterchung@tpe39'
+alias esunrsync='sh $SCRIPT_HOME/rsync-esun.sh'
+alias mkhtml='sh $SCRIPT_HOME/mkhtml.sh $1'
+alias glive='guard init && guard init livereload'
+alias scssexample='cp ~/repos/scss-syntax.vim/example.scss $1'
+alias cdrails='cd ~/nester.com/railsapp'
+alias mysqlstart='mysql.server start'
+alias mysqlstop='mysql.server stop'
+alias mounttpe90='mount_smbfs //Administrator@tpe90/c$ $tpe90dir'
+alias cdtpe90='cd tpe90dir'
+alias cdtpe90web='cd $tpe90dir/tashome2/var/jsvr/tasweb/installedApps/tasweb90_2'
