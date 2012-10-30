@@ -8,9 +8,11 @@ alias s="subl ."
 alias o="open"
 alias oo="open ."
 alias grep="grep --color=tty -d skip"
+alias trsh='mv --target-directory=$HOME/.Trash'
+alias rake="noglob rake"
 
 # Get OS X Software Updates, update Homebrew itself, and upgrade installed Homebrew packages
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade'
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade; gem update; npm update'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -24,3 +26,11 @@ alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET
 
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+
+
+alias scssexample='cp ~/repos/scss-syntax.vim/example.scss $1'
+alias cdrails='cd ~/nester.com/railsapp'
+alias glive='guard init && guard init livereload'
+alias mkhtml='sh $SCRIPT_HOME/mkhtml.sh $1'
+alias mysqlstart='mysql.server start'
+alias mysqlstop='mysql.server stop'

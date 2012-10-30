@@ -1,15 +1,64 @@
-SCRIPT_HOME=`pwd`/script
-
-tpe90dir='/Volumes/tpe90'
+SCRIPT_HOME=$HOME/dev/script
 
 alias tpe39='ssh nesterchung@tpe39'
-alias esunrsync='sh $SCRIPT_HOME/rsync-esun.sh'
-alias mkhtml='sh $SCRIPT_HOME/mkhtml.sh $1'
-alias glive='guard init && guard init livereload'
-alias scssexample='cp ~/repos/scss-syntax.vim/example.scss $1'
-alias cdrails='cd ~/nester.com/railsapp'
-alias mysqlstart='mysql.server start'
-alias mysqlstop='mysql.server stop'
-alias mounttpe90='mount_smbfs //Administrator@tpe90/c$ $tpe90dir'
-alias cdtpe90='cd tpe90dir'
-alias cdtpe90web='cd $tpe90dir/tashome2/var/jsvr/tasweb/installedApps/tasweb90_2'
+alias rsyncesun='sh $SCRIPT_HOME/rsync-esun.sh'
+alias rsyncmbank='sh $SCRIPT_HOME/rsync-mbank.sh'
+
+cnt50="/Users/nester/truetel/cnt50"
+tpe90="/Users/nester/truetel/tpe90"
+
+test.tpe90() {
+    sudo ls $tpe90/tashome &> /dev/null
+    echo $?
+}
+
+mnt.tpe90 () {
+    OUT=`test.tpe90`
+    if [[ $OUT = 1 ]]; then
+        echo "mount tpe90 on $tpe90"
+        mkdir -p $tpe90
+        mount_smbfs //administrator:qweQWE123@tpe90:/c$ $tpe90
+    fi
+}
+
+test.cnt50 () {
+    sudo ls $cnt50/tashome &> /dev/null
+    echo $?
+}
+
+mnt.cnt50() {
+    OUT=`test.cnt50`
+    if [[ $OUT = 1 ]]; then
+        echo 'mount mbank on $cnt50'
+        mkdir -p $cnt50
+        mount_smbfs //administrator:qweQWE123@192.168.2.50:/c$ $cnt50
+    fi
+}
+
+cdmbank () {
+    mnt.tpe90 && cd $cnt50 
+}
+
+tailmbankweb () {
+    tail -f ~/$cnt50/tashome/tmp/debug/tasweb/debug.log
+}
+tailmbankmib () {
+    tail -f ~/$cnt50/tashome/tmp/debug/tasmib/debug.log
+}
+vimbankweb () {
+    m -f ~/$cnt50/tashome/tmp/debug/tasweb/debug.log
+}
+vimbankmib () {
+    m -f ~/$cnt50/tashome/tmp/debug/tasmib/debug.log
+}
+
+truetel.prepare () {
+    mnt.cnt50 && mnttpe90;
+    svn update ~/Documents/mbank.svn
+}
+
+mbank.iphone.deploy() {
+    cd ~/Documents/mbank.svn/ts/internal/
+    cp -R * ~/mbank/tashome/var/jsvr/tasweb/deploy/iphone.war/ 
+}
+
