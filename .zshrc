@@ -45,3 +45,4 @@ source ~/dotfiles/aliases
 
 
 alias sudo='nocorrect sudo'
+alias grunt='nocorrect grunt'

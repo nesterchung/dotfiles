@@ -1,4 +1,9 @@
 # Create a new directory and enter it
-function md() {
+function md {
     mkdir -p "$@" && cd "$@"
+}
+
+function zkeclipse {
+   d=`pwd`
+   cd /Applications/eclipse_zk/ && (nohup open -a Eclipse.app > /dev/null 2>&1  &) && cd "$d"
 }

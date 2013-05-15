@@ -3,13 +3,16 @@ alias dropbox="~/Dropbox"
 alias dbx="cd ~/Dropbox"
 alias g="git"
 alias v="mvim "
-alias m="mvim "
+alias m="mate "
 alias s="subl ."
 alias o="open"
 alias oo="open ."
 alias grep="grep --color=tty -d skip"
 alias trsh='mv --target-directory=$HOME/.Trash'
 alias rake="noglob rake"
+alias tree="tree -CAFa -I 'CVS|*.*.package|.svn|.git' --dirsfirst"
+
+alias sudo='sudo '
 
 # Get OS X Software Updates, update Homebrew itself, and upgrade installed Homebrew packages
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; gem update; npm update'
@@ -34,3 +37,16 @@ alias glive='guard init && guard init livereload'
 alias mkhtml='sh $SCRIPT_HOME/mkhtml.sh $1'
 alias mysqlstart='mysql.server start'
 alias mysqlstop='mysql.server stop'
+
+
+#aptg
+alias sshxsms='ssh xsms@10.31.80.101'
+alias sshxsmsuser='ssh xsmsuser@10.31.80.107'
+alias sshtnlxsmsuser='ssh -L 9090:localhost:9090 xsmsuser@10.31.80.107'
+alias cdaptg='cd ~/dev/aptg'
+#alias sshaptg_test='ssh mcpayuser@10.31.80.101'
+
+
+#sqldeveloper
+alias sqldeveloper='nohup sqldeveloper 1>&2'
+alias sshtunal107='ssh -L 9090:localhost:9090 xsmsuser@10.31.80.107'
