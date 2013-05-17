@@ -48,5 +48,4 @@ alias cdaptg='cd ~/dev/aptg'
 
 
 #sqldeveloper
-alias sqldeveloper='nohup sqldeveloper 1>&2'
-alias sshtunal107='ssh -L 9090:localhost:9090 xsmsuser@10.31.80.107'
+alias sqldeveloper='nohup sqldeveloper > /dev/null &'
