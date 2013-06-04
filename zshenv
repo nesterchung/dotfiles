@@ -1,5 +1,6 @@
 
-export PATH="/sbin:/usr/bin:/bin:/usr/sbin:/usr/local/bin/:/usr/X11/bin/"
+export PATH="/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/usr/X11/bin"
+export PATH="$PATH:/usr/local/sbin"
 
 export SVN_EDITOR="vim"
 export EDITOR="vim"
