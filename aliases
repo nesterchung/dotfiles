@@ -2,8 +2,8 @@
 alias dropbox="~/Dropbox"
 alias dbx="cd ~/Dropbox"
 alias g="git"
-alias v="mvim "
-alias m="mate "
+alias v="vim "
+alias m="mvim "
 alias s="subl ."
 alias o="open"
 alias oo="open ."
@@ -11,6 +11,9 @@ alias grep="grep --color=tty -d skip"
 alias trsh='mv --target-directory=$HOME/.Trash'
 alias rake="noglob rake"
 alias tree="tree -CAFa -I 'CVS|*.*.package|.svn|.git' --dirsfirst"
+alias cddoc="cd ~/Documents"
+alias ptt="ssh bbsu@ptt.cc"
+
 
 alias sudo='sudo '
 
@@ -30,7 +33,6 @@ alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
-
 alias scssexample='cp ~/repos/scss-syntax.vim/example.scss $1'
 alias cdrails='cd ~/nester.com/railsapp'
 alias glive='guard init && guard init livereload'
@@ -38,14 +40,11 @@ alias mkhtml='sh $SCRIPT_HOME/mkhtml.sh $1'
 alias mysqlstart='mysql.server start'
 alias mysqlstop='mysql.server stop'
 
-
-#aptg
-alias sshxsms='ssh xsms@10.31.80.101'
-alias sshxsmsuser='ssh xsmsuser@10.31.80.107'
-alias sshtnlxsmsuser='ssh -L 9090:localhost:9090 xsmsuser@10.31.80.107'
-alias cdaptg='cd ~/dev/aptg'
-#alias sshaptg_test='ssh mcpayuser@10.31.80.101'
-
+source ~/dotfiles/aptg.alias
 
 #sqldeveloper
 alias sqldeveloper='nohup sqldeveloper > /dev/null &'
+
+alias cdap="cd ~/Documents/workspace_zk/XSMSAP_HEAD"
+alias cdph3="cd ~/Documents/workspace_zk/XSMSPH3_head/"
+alias ptt="ssh bbsu@ptt.cc"

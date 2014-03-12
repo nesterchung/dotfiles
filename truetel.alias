@@ -2,63 +2,90 @@ SCRIPT_HOME=$HOME/dev/script
 
 alias tpe39='ssh nesterchung@tpe39'
 alias rsyncesun='sh $SCRIPT_HOME/rsync-esun.sh'
-alias rsyncmbank='sh $SCRIPT_HOME/rsync-mbank.sh'
 
-cnt50="/Users/nester/truetel/cnt50"
-tpe90="/Users/nester/truetel/tpe90"
+#cnt50="/Users/nester/truetel/cnt50"
+#tpe90="/Users/nester/truetel/tpe90"
 
-test.tpe90() {
-    sudo ls $tpe90/tashome &> /dev/null
-    echo $?
-}
+#test.tpe90() {
+#    sudo ls $tpe90/tashome &> /dev/null
+#    echo $?
+#}
 
-mnt.tpe90 () {
-    OUT=`test.tpe90`
-    if [[ $OUT = 1 ]]; then
-        echo "mount tpe90 on $tpe90"
-        mkdir -p $tpe90
-        mount_smbfs //administrator:qweQWE123@tpe90:/c$ $tpe90
-    fi
-}
+#mnt.tpe90 () {
+#    OUT=`test.tpe90`
+#    if [[ $OUT = 1 ]]; then
+#        echo "mount tpe90 on $tpe90"
+#        mkdir -p $tpe90
+#        mount_smbfs //administrator:qweQWE123@tpe90:/c$ $tpe90
+#    fi
+#}
+#
+#test.cnt50 () {
+#    sudo ls $cnt50/tashome &> /dev/null
+#    echo $?
+#}
+#
+#mnt.cnt50() {
+#    OUT=`test.cnt50`
+#    if [[ $OUT = 1 ]]; then
+#        echo 'mount mbank on $cnt50'
+#        mkdir -p $cnt50
+#        mount_smbfs //administrator:qweQWE123@192.168.2.50:/c$ $cnt50
+#    fi
+#}
+#tailmbankweb () {
+#    tail -f ~/$cnt50/tashome/tmp/debug/tasweb/debug.log
+#}
+#vimbankweb () {
+#    m -f ~/$cnt50/tashome/tmp/debug/tasweb/debug.log
+#}
+#vimbankmib () {
+#    m -f ~/$cnt50/tashome/tmp/debug/tasmib/debug.log
+#}
 
-test.cnt50 () {
-    sudo ls $cnt50/tashome &> /dev/null
-    echo $?
-}
+#ejabberd
+#alias tailejablog="tail -f $EJABBERD_HOME/logs/ejabberd.log"
+#alias viejablog="tail -f $EJABBERD_HOME/logs/ejabberd.log"
+#alias cdejablog="cd $EJABBERD_HOME/logs"
+#alias viejabconf="vim $EJABBERD_HOME/conf"
 
-mnt.cnt50() {
-    OUT=`test.cnt50`
-    if [[ $OUT = 1 ]]; then
-        echo 'mount mbank on $cnt50'
-        mkdir -p $cnt50
-        mount_smbfs //administrator:qweQWE123@192.168.2.50:/c$ $cnt50
-    fi
-}
+export CVS_EDITOR=vim
+export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
+export SUPPORTED="zh_TW.UTF-8:zh_TW.euctw:zh_TW:zh:en_US:en"
+export JININTERFACE_JAR="/usr/local/opt/erlang/lib/erlang/lib/jinterface-1.5.8/priv/OtpErlang.jar"
 
-cdmbank () {
-    mnt.tpe90 && cd $cnt50 
-}
+ecomm1=ejabberd@54.208.139.160
+ecomm2=ejabberd@54.209.41.84
+wcomm1=ejabberd@54.201.121.187
+wcomm2=ejabberd@54.201.8.95
+tsungclient=tsungadm@54.221.221.230
+tsungclient2=tsungadm@54.204.38.125
+tsungclient3=tsungadm@54.204.42.150
+tsungclient4=tsungadm@54.193.17.244
+tsungclient5=tsungadm@54.193.45.198
+tsungclient6=tsungadm@54.193.33.105
+tsungclient7=tsungadm@54.193.12.53
 
-tailmbankweb () {
-    tail -f ~/$cnt50/tashome/tmp/debug/tasweb/debug.log
-}
-tailmbankmib () {
-    tail -f ~/$cnt50/tashome/tmp/debug/tasmib/debug.log
-}
-vimbankweb () {
-    m -f ~/$cnt50/tashome/tmp/debug/tasweb/debug.log
-}
-vimbankmib () {
-    m -f ~/$cnt50/tashome/tmp/debug/tasmib/debug.log
-}
+alias ssh_ecomm1="plink $ecomm1 -pw 'ejabberd123'"
+alias ssh_ecomm2="plink $ecomm2 -pw 'ejabberd123'"
+alias ssh_wcomm1="plink $wcomm1 -pw 'ejabberd123'"
+alias ssh_wcomm2="plink $wcomm2 -pw 'ejabberd123'"
 
-truetel.prepare () {
-    mnt.cnt50 && mnttpe90;
-    svn update ~/Documents/mbank.svn
-}
+alias ssh_tsungclient="plink -x $tsungclient -pw 'tsungadm123'"
+alias ssh_tsungclient2="plink -x  $tsungclient2 -pw 'tsungadm123'"
+alias ssh_tsungclient3="plink -x  $tsungclient3 -pw 'tsungadm123'"
+alias ssh_tsungclient4="plink -x  $tsungclient4 -pw 'tsungadm123'"
+alias ssh_tsungclient5="plink -x  $tsungclient5 -pw 'tsungadm123'"
+alias ssh_tsungclient6="plink -x  $tsungclient6 -pw 'tsungadm123'"
+alias ssh_tsungclient7="plink -x  $tsungclient7 -pw 'tsungadm123'"
 
-mbank.iphone.deploy() {
-    cd ~/Documents/mbank.svn/ts/internal/
-    cp -R * ~/mbank/tashome/var/jsvr/tasweb/deploy/iphone.war/ 
-}
 
+alias tunnel_eap01_65000="plink -ssh -A -t tasadm@54.208.131.217 -pw 2013tasadm -L 65000:locahost:6500 ssh -A -t tasadm@paap001u1p -L 6500:localhost:6500"
+alias tunnel_ecomm1_65001="plink -t -A -ssh tasadm@54.208.139.160 -pw 2013tasadm -L 65001:localhost:6500"
+alias tunnel_ecomm2_65002="plink -t -A -ssh tasadm@54.209.41.84 -pw 2013tasadm -L 65002:localhost:6500"
+alias tunnel_ecm101_33060="plink -ssh ejabberd@54.201.90.165 -pw 'ejabberd123' -L 33060:rds-eng-ejabberd-11.pa.infra-host.com:3306"
+
+
+alias ssh_eiw101="plink -x tasadm@54.201.93.172 -pw '2013tasadm'"
+alias ssh_euw101="plink -x tasadm@54.201.120.75 -pw '2013tasadm'"
+alias ssh_ecm101="plink -x ejabberd@54.201.90.165 -pw 'ejabberd123'"

@@ -1,0 +1,3 @@
+#ejabberd
+export EJABBERD_HOME=/opt/ejabberd-2.1.13
+export PATH="${PATH}:$EJABBERD_HOME/bin"

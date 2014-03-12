@@ -6,6 +6,7 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="sorin"
+#ZSH_THEME="ys"
 
 
 # Example aliases
@@ -30,7 +31,7 @@ ZSH_THEME="sorin"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git, rails, ruby, node, npm, perl, osx, brew)
+plugins=(git, rails, ruby, node, npm, perl, osx, brew, encode64, taskwarrior, web-search, osx, zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -41,7 +42,12 @@ source ~/dotfiles/zshenv
 source ~/dotfiles/profile
 source ~/dotfiles/functions
 source ~/dotfiles/aliases
-#source ~/dotfiles/truetel.alias
+source ~/dotfiles/truetel.alias
+
+
+# Add RVM to PATH for scripting
+export PATH="$HOME/.rvm/bin:$PATH"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" #Load RVM function
 
 
 alias sudo='nocorrect sudo'

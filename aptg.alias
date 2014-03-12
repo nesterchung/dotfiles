@@ -1,0 +1,6 @@
+#aptg
+alias sshxsms='ssh xsms@10.31.80.101'
+alias sshxsmsuser='ssh xsmsuser@10.31.80.107'
+alias sshtnlxsmsuser='ssh -L 9090:localhost:9090 xsmsuser@10.31.80.107'
+alias cdaptg='cd ~/dev/aptg'
+#alias sshaptg_test='ssh mcpayuser@10.31.80.101'
