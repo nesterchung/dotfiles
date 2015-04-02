@@ -1,6 +1,6 @@
 #export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
 
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/sbin
+export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin:/usr/X11/bin
 
 export SVN_EDITOR="vim"
 export EDITOR="vim"
@@ -23,5 +23,5 @@ export ERLANG_HOME=$HOME/erlbrew/`cat erlbrew/.erlbrew_current`
 
 export VAGRANT_DEFAULT_PROVIDER=virtualbox
 
-#canssandra
-#PATH=$PATH:/usr/local/opt/cassandra/bin/
+# Local config
+[[ -f ~/.zshenv.local ]] && source ~/.zshenv.local

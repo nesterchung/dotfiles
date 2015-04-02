@@ -15,7 +15,6 @@ alias rake="noglob rake"
 alias tree="tree -CAFa -I 'CVS|*.*.package|.svn|.git' --dirsfirst"
 alias cddoc="cd ~/Documents"
 alias ptt="ssh bbsu@ptt.cc"
-alias select-jdk="/Users/nester/dotfiles/select-jdk.sh"
 
 alias sudo='sudo '
 

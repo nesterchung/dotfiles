@@ -1,9 +1,16 @@
 ZSH=$HOME/.oh-my-zsh
-
 ZSH_THEME="sorin"
+dotfiles=~/dotfiles
 
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
+
+plugins=(osx, brew, git, perl, brew, zsh-syntax-highlighting, history-substring-search)
+source $ZSH/oh-my-zsh.sh
+source ~/.aliases 
+
+alias sudo='nocorrect sudo'
+alias grunt='nocorrect grunt'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -20,14 +27,12 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
 
-plugins=(osx, git, perl, brew, zsh-syntax-highlighting, history-substring-search)
+# Local config
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
-source $ZSH/oh-my-zsh.sh
+# Load custom
 
-source ~/dotfiles/zshenv
-source ~/dotfiles/zprofile
-source ~/dotfiles/zfunctions
-source ~/dotfiles/zalias
+for file in `ls ${dotfiles}/custom/*`; do
+    source ${file}
+done
 
-alias sudo='nocorrect sudo'
-alias grunt='nocorrect grunt'
