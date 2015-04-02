@@ -8,12 +8,14 @@ alias s="subl ."
 alias o="open"
 alias oo="open ."
 alias grep="grep --color=tty -d skip"
+alias gr=grep
+alias hgrep="history | grep "
 alias trsh='mv --target-directory=$HOME/.Trash'
 alias rake="noglob rake"
 alias tree="tree -CAFa -I 'CVS|*.*.package|.svn|.git' --dirsfirst"
 alias cddoc="cd ~/Documents"
 alias ptt="ssh bbsu@ptt.cc"
-
+alias select-jdk="/Users/nester/dotfiles/select-jdk.sh"
 
 alias sudo='sudo '
 
@@ -40,11 +42,10 @@ alias mkhtml='sh $SCRIPT_HOME/mkhtml.sh $1'
 alias mysqlstart='mysql.server start'
 alias mysqlstop='mysql.server stop'
 
-source ~/dotfiles/aptg.alias
-
 #sqldeveloper
 alias sqldeveloper='nohup sqldeveloper > /dev/null &'
 
-alias cdap="cd ~/Documents/workspace_zk/XSMSAP_HEAD"
-alias cdph3="cd ~/Documents/workspace_zk/XSMSPH3_head/"
 alias ptt="ssh bbsu@ptt.cc"
+alias tsung_stat=/Users/nester/tsung-1.5.1/bin/tsung_stats.pl
+
+alias setdockerhost='export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2376'

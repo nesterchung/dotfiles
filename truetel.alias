@@ -1,91 +1,77 @@
+#!/bin/zsh
 SCRIPT_HOME=$HOME/dev/script
 
-alias tpe39='ssh nesterchung@tpe39'
-alias rsyncesun='sh $SCRIPT_HOME/rsync-esun.sh'
-
-#cnt50="/Users/nester/truetel/cnt50"
-#tpe90="/Users/nester/truetel/tpe90"
-
-#test.tpe90() {
-#    sudo ls $tpe90/tashome &> /dev/null
-#    echo $?
-#}
-
-#mnt.tpe90 () {
-#    OUT=`test.tpe90`
-#    if [[ $OUT = 1 ]]; then
-#        echo "mount tpe90 on $tpe90"
-#        mkdir -p $tpe90
-#        mount_smbfs //administrator:qweQWE123@tpe90:/c$ $tpe90
-#    fi
-#}
-#
-#test.cnt50 () {
-#    sudo ls $cnt50/tashome &> /dev/null
-#    echo $?
-#}
-#
-#mnt.cnt50() {
-#    OUT=`test.cnt50`
-#    if [[ $OUT = 1 ]]; then
-#        echo 'mount mbank on $cnt50'
-#        mkdir -p $cnt50
-#        mount_smbfs //administrator:qweQWE123@192.168.2.50:/c$ $cnt50
-#    fi
-#}
-#tailmbankweb () {
-#    tail -f ~/$cnt50/tashome/tmp/debug/tasweb/debug.log
-#}
-#vimbankweb () {
-#    m -f ~/$cnt50/tashome/tmp/debug/tasweb/debug.log
-#}
-#vimbankmib () {
-#    m -f ~/$cnt50/tashome/tmp/debug/tasmib/debug.log
-#}
-
-#ejabberd
-#alias tailejablog="tail -f $EJABBERD_HOME/logs/ejabberd.log"
-#alias viejablog="tail -f $EJABBERD_HOME/logs/ejabberd.log"
-#alias cdejablog="cd $EJABBERD_HOME/logs"
-#alias viejabconf="vim $EJABBERD_HOME/conf"
+alias plink='plink '
 
 export CVS_EDITOR=vim
 export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
 export SUPPORTED="zh_TW.UTF-8:zh_TW.euctw:zh_TW:zh:en_US:en"
 export JININTERFACE_JAR="/usr/local/opt/erlang/lib/erlang/lib/jinterface-1.5.8/priv/OtpErlang.jar"
 
-ecomm1=ejabberd@54.208.139.160
-ecomm2=ejabberd@54.209.41.84
-wcomm1=ejabberd@54.201.121.187
-wcomm2=ejabberd@54.201.8.95
-tsungclient=tsungadm@54.221.221.230
-tsungclient2=tsungadm@54.204.38.125
-tsungclient3=tsungadm@54.204.42.150
-tsungclient4=tsungadm@54.193.17.244
-tsungclient5=tsungadm@54.193.45.198
-tsungclient6=tsungadm@54.193.33.105
-tsungclient7=tsungadm@54.193.12.53
 
-alias ssh_ecomm1="plink $ecomm1 -pw 'ejabberd123'"
-alias ssh_ecomm2="plink $ecomm2 -pw 'ejabberd123'"
-alias ssh_wcomm1="plink $wcomm1 -pw 'ejabberd123'"
-alias ssh_wcomm2="plink $wcomm2 -pw 'ejabberd123'"
+function _ssh
+{
+    host=$1
+    password=$2
 
-alias ssh_tsungclient="plink -x $tsungclient -pw 'tsungadm123'"
-alias ssh_tsungclient2="plink -x  $tsungclient2 -pw 'tsungadm123'"
-alias ssh_tsungclient3="plink -x  $tsungclient3 -pw 'tsungadm123'"
-alias ssh_tsungclient4="plink -x  $tsungclient4 -pw 'tsungadm123'"
-alias ssh_tsungclient5="plink -x  $tsungclient5 -pw 'tsungadm123'"
-alias ssh_tsungclient6="plink -x  $tsungclient6 -pw 'tsungadm123'"
-alias ssh_tsungclient7="plink -x  $tsungclient7 -pw 'tsungadm123'"
+    echo "plink -pw ${password} ${host}"
+}
+
+function _ssht
+{
+    host=$1
+    password=$2
+
+    echo "plink -t -pw ${password} ${host}"
+}
+
+tsungclt1=tsungadm@54.186.77.104
+tsungclt2=tsungadm@54.186.54.241
+tsungclt3=tsungadm@54.186.0.213
+tsungclt4=tsungadm@54.186.111.217
+tsungclt11=tsungadm@54.84.137.81
+tsungclt12=tsungadm@54.84.241.71
+
+for seq in 1 2 3 4 11 12; do
+    host=tsungclt${seq}
+    host_=${host}    
+    tmp=$(_ssh ${host_} tsungadm123)
+    alias _sshtc${seq}=${tmp}
+done
+
+for domain in dcm101 dcm102 dcm201 dcm202; do
+    tmp=$(_ssh ejdadm@${domain} ejdadm2013)
+    alias _ssh${domain}=${tmp}
+done
+
+for domain in ecm101 ecm201; do
+    tmp=$(_ssh ejdadm@${domain} ejdadm2013)
+    alias _ssh${domain}=${tmp}
+done
+
+for domain in dca101 dca201; do
+    tmp=$(_ssh tasadm@${domain} 2015tasadm)
+    alias _ssh${domain}=${tmp}
+done
+
+for domain in tpe34 tpe101 tpe103; do
+    tmp=$(_ssh ejdadm@${domain} ejdadm2013)
+    alias _ssh${domain}=${tmp}
+done
+
+ejdpass=iyquAQuUBlKUDkeS
+ejdadmpass=93f4kNyrvQVGb9zJ
+for domain in pcm102 pcm202; do
+    tmp=$(_ssh ejdadm@${domain} ${ejdadmpass})
+    alias _ssh${domain}=${tmp}
+done
 
 
-alias tunnel_eap01_65000="plink -ssh -A -t tasadm@54.208.131.217 -pw 2013tasadm -L 65000:locahost:6500 ssh -A -t tasadm@paap001u1p -L 6500:localhost:6500"
-alias tunnel_ecomm1_65001="plink -t -A -ssh tasadm@54.208.139.160 -pw 2013tasadm -L 65001:localhost:6500"
-alias tunnel_ecomm2_65002="plink -t -A -ssh tasadm@54.209.41.84 -pw 2013tasadm -L 65002:localhost:6500"
-alias tunnel_ecm101_33060="plink -ssh ejabberd@54.201.90.165 -pw 'ejabberd123' -L 33060:rds-eng-ejabberd-11.pa.infra-host.com:3306"
+alias _sshipatedj1="$(_ssh ipatejd1@tpe28 ipatejd1)"
+alias _sshipatedj2="$(_ssh ipatejd2@tpe28 ipatejd2)"
+alias _sshg2skyedj1="$(_ssh g2skyejd1@tpe28 g2skyejd1)"
+alias _sshg2skyedj2="$(_ssh g2skyejd2@tpe28 g2skyejd2)"
 
-
-alias ssh_eiw101="plink -x tasadm@54.201.93.172 -pw '2013tasadm'"
-alias ssh_euw101="plink -x tasadm@54.201.120.75 -pw '2013tasadm'"
-alias ssh_ecm101="plink -x ejabberd@54.201.90.165 -pw 'ejabberd123'"
+alias _sshtpe105="$(_ssht nesterchung@tpe105 nester2010)"
+alias _ssheiw101="$(_ssh tasadm@54.201.93.172 2013tasadm)"
+alias _ssheuw101="$(_ssh tasadm@54.201.120.75 -pw 2013tasadm)"
