@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+if [[ "${1}" -eq "" ]]; then
+    echo Enter pid?
+    read ${pid}
+else
+    pid=${1}
+fi
+
+jmap -heap:format=b ${pid}
+
+ll heap.bin

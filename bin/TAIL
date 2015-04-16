@@ -1,0 +1,4 @@
+#/usr/bin/env zsh
+tail -f "$@"
+# export below to tasrtenv.sh
+#export TAIL=~/dotfiles/bin/TAIL

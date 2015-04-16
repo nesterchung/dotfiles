@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+# vim: ts=2 sw=2 et ft=zsh
+
+open /opt/homebrew-cask/Caskroom/eclipse-java/4.4.1/eclipse/Eclipse.app

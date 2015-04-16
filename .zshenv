@@ -7,6 +7,11 @@ append_path()
     export PATH=${PATH}:${1}
 }
 
+prepend_path()
+{
+  export PATH=${1}:${PATH}
+}
+
 load_if_exist()
 {
     if [ -f "${1}" ]; then
@@ -14,13 +19,15 @@ load_if_exist()
     fi
 }
 
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+
+prepend_path /usr/local/bin:/usr/local/sbin
 
 # Local bin
 append_path $HOME/bin
 
 # Dotfile
-append_path ${HOME}/dotfile
+append_path ${HOME}/dotfiles/bin
 
 # Java
 export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
@@ -48,6 +55,9 @@ export ERLANG_HOME=$HOME/erlbrew/$(cat $HOME/erlbrew/.erlbrew_current)
 
 # Virtualbox
 export VAGRANT_DEFAULT_PROVIDER=virtualbox
+
+# Android
+load_if_exist ~/dotfiles/.androidenv
 
 # Local config
 #load_if_exist ~/.zshenv.local

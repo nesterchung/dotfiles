@@ -5,7 +5,7 @@ dotfiles=~/dotfiles
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 
-plugins=(osx, brew, git, perl, brew, zsh-syntax-highlighting, history-substring-search, pip)
+plugins=(osx, brew, git, perl, brew, history-substring-search, tmux, rsync, docker)
 source $ZSH/oh-my-zsh.sh
 
 alias sudo='nocorrect sudo'
@@ -26,18 +26,17 @@ alias grunt='nocorrect grunt'
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
 
-
 # bash completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
-fi
+#if [ -f $(brew --prefix)/etc/bash_completion ]; then
+#    . $(brew --prefix)/etc/bash_completion
+#fi
 
 # Local config
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+load_if_exist ~/.zshrc.local
 
 # Load custom
 
-for file in `ls ${dotfiles}/custom/*`; do
+for file in ${dotfiles}/custom/*; do
     source ${file}
 done
 

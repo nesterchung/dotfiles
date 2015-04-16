@@ -1,6 +1,4 @@
 # Shortcuts
-alias dropbox="~/Dropbox"
-alias dbx="cd ~/Dropbox"
 alias g="git"
 alias v="vim "
 alias m="mvim "
@@ -14,8 +12,6 @@ alias trsh='mv --target-directory=$HOME/.Trash'
 alias rake="noglob rake"
 alias tree="tree -CAFa -I 'CVS|*.*.package|.svn|.git' --dirsfirst"
 alias cddoc="cd ~/Documents"
-alias ptt="ssh bbsu@ptt.cc"
-
 alias sudo='sudo '
 
 # Get OS X Software Updates, update Homebrew itself, and upgrade installed Homebrew packages
@@ -28,23 +24,14 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias whois="whois -h whois-servers.net"
 
 # View HTTP traffic
-alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
-alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump="sudo tcpdump -i en0 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
-alias scssexample='cp ~/repos/scss-syntax.vim/example.scss $1'
-alias cdrails='cd ~/nester.com/railsapp'
 alias glive='guard init && guard init livereload'
-alias mkhtml='sh $SCRIPT_HOME/mkhtml.sh $1'
 alias mysqlstart='mysql.server start'
 alias mysqlstop='mysql.server stop'
 
-#sqldeveloper
-alias sqldeveloper='nohup sqldeveloper > /dev/null &'
-
 alias ptt="ssh bbsu@ptt.cc"
-alias tsung_stat=/Users/nester/tsung-1.5.1/bin/tsung_stats.pl
-
-alias setdockerhost='export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2376'
