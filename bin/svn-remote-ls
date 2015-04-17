@@ -1,0 +1,1 @@
+svn info $@ | grep URL | cut -d ' ' -f2 | xargs svn ls
