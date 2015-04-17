@@ -5,7 +5,7 @@ dotfiles=~/dotfiles
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 
-plugins=(osx, brew, git, perl, brew, history-substring-search, tmux, rsync, docker)
+plugins=(osx, brew, git, git-flow, perl, brew, history-substring-search, tmux, rsync, docker, z, zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 alias sudo='nocorrect sudo'

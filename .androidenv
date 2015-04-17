@@ -9,3 +9,5 @@ export ANDROID_NDK_HOME=/usr/local/opt/android-ndk
 for p in $ANT_HOME $MAVEN_HOME $GRADLE_HOME $ANDROID_HOME $ANDROID_NDK_HOME; do
     append_path $p/bin
 done
+
+append_path /Users/nester/Applications/Genymotion.app/Contents/MacOS

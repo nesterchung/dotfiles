@@ -20,3 +20,7 @@ map <leader>e :e! ~/dotfiles/vim/my_configs.vim<cr>
 autocmd! bufwritepost vimrc source ~/dotfiles/vim/my_configs.vim
 
 let g:airline_theme="solarized"
+
+"Tagbar
+let g:tagbar_usearrows = 1
+nnoremap <leader>l :TagbarToggle<CR>
