@@ -3,9 +3,6 @@ set ai
 set number
 set ts=4 
 set sw=4
-let mapleader=","
-
-"{{{
 
 " Format
 "definition ID of the source -> format action 
@@ -24,28 +21,20 @@ eclipseaction eclipsecmdsearch org.eclipse.ui.window.quickAccess
 nnoremap <space> :eclipsecmdsearch<cr>
 
 eclipseaction eclipseopenresource org.eclipse.ui.navigate.openResource
-nnoremap <leader>j :eclipseopenresource<cr>
+nnoremap ,j :eclipseopenresource<cr>
 
 " show type hierarchy relative to current type
 eclipseuiaction eclipsetypehier org.eclipse.jdt.ui.edit.text.java.open.hierarchy
-nnoremap <leader>gt :eclipsetypehier<cr>
+nnoremap ,gt :eclipsetypehier<cr>
 
 
 " go to super implementation
 eclipseaction eclipsegotosuper org.eclipse.java.ui.edit.text.java.open.super.implementation
-nnoremap <leader>gi :eclipsegotosuper<cr>
+nnoremap ,gi :eclipsegotosuper<cr>
 
 "show refactor menu
 eclipseaction eclipserefactormenu org.eclipse.jdt.ui.edit.text.java.refactor.quickMenu
 nnoremap crr        :eclipserefactormenu<cr>
 vnoremap <c-r><c-r> :eclipserefactormenu<cr>gv
-
-"eclipseaction eclipsecompletion org.eclipse.ui.edit.text.hippieCompletion
-"inoremap <silent> <tab> :eclipsecompletion
-
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-"}}}
 
 " vim: ft=vim

@@ -5,7 +5,8 @@ dotfiles=~/dotfiles
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 
-plugins=(osx, brew, git, git-flow, perl, gradle, brew, history-substring-search, tmux, rsync, docker, z, zsh-syntax-highlighting)
+plugins=(brew, tmux, git-flow-completion, zsh-syntax-highlighting, history-substring-search )
+#plugins=(osx, docker, brew, git, git-flow, brew, tmux, z, history-substring-search, zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 alias sudo='nocorrect sudo'
@@ -27,9 +28,9 @@ alias grunt='nocorrect grunt'
 # COMPLETION_WAITING_DOTS="true"
 
 # bash completion
-#if [ -f $(brew --prefix)/etc/bash_completion ]; then
-#    . $(brew --prefix)/etc/bash_completion
-#fi
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
 
 # Local config
 load_if_exist ~/.zshrc.local

@@ -12,7 +12,7 @@ prepend_path()
 
 load_if_exist()
 {
-    if [ -f "${1}" ]; then
+    if [ -f ${1} ]; then
         source ${1}
     fi
 }

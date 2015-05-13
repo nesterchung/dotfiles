@@ -24,3 +24,7 @@ let g:airline_theme="solarized"
 "Tagbar
 let g:tagbar_usearrows = 1
 nnoremap <leader>l :TagbarToggle<CR>
+
+
+#vim markdown preview
+let g:instant_markdown_slow = 1

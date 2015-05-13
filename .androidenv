@@ -1,5 +1,4 @@
 #!/bin/bash
-
 export ANT_HOME=/usr/local/opt/ant
 export MAVEN_HOME=/usr/local/opt/maven
 export GRADLE_HOME=/usr/local/opt/gradle
@@ -11,3 +10,9 @@ for p in $ANT_HOME $MAVEN_HOME $GRADLE_HOME $ANDROID_HOME $ANDROID_NDK_HOME; do
 done
 
 append_path /Users/nester/Applications/Genymotion.app/Contents/MacOS
+
+export ANDROID_HTTPS_MODE=disable
+export ANDROID_SERVER_HOST=192.168.1.102
+export ANDROID_SERVER_PORT=6500
+export ANDROID_FB_APPID=540198322784867
+export ANDROID_BACKDOOR=true
