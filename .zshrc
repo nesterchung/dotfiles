@@ -1,11 +1,13 @@
+#!/usr/bin/env zsh
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="sorin"
 dotfiles=~/dotfiles
+zstyle ':completion:*' completer _expand_alias _complete _ignored
 
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 
-plugins=(brew, tmux, git-flow-completion, zsh-syntax-highlighting, history-substring-search )
+plugins=(brew, git, tmux, git-flow-completion, zsh-syntax-highlighting, history-substring-search )
 #plugins=(osx, docker, brew, git, git-flow, brew, tmux, z, history-substring-search, zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
@@ -42,3 +44,8 @@ for file in ${dotfiles}/custom/*; do
 done
 
 source ~/.aliases 
+source ${dotfiles}/3rdparty/zaw/zaw.zsh
+bindkey '^X' zaw
+zstyle ':filter-select' case-insensitive yes # enable case-insensitive search
+zstyle ':filter-select' extended-search yes # see below
+source ${dotfiles}/3rdparty/zsh-zaw-extras/zsh-zaw-extras.plugin.zsh

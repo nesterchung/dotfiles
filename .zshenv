@@ -32,9 +32,9 @@ export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
 append_path "$JAVA_HOME/bin"
 
 # Editor
-export SVN_EDITOR="vim"
-export GIT_EDITOR="vim"
-export EDITOR="vim"
+export EDITOR='mvim -f --nomru -c "au VimLeave * !open -a iTerm"'
+export SVN_EDITOR="$EDITOR"
+export GIT_EDITOR="$EDITOR"
 
 # Erlbrew
 append_path "$HOME/bin/erlbrew.d"
