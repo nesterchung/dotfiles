@@ -20,6 +20,10 @@ brew install macvim --override-system-vim --without-python --with-python3
 brew tap phinze/homebrew-cask
 brew install brew-cask
 
+brew tap homebrew/dupes
+brew install gdb
+
+
 function installcask() {
     brew cask install "${@}" 2> /dev/null
 }
