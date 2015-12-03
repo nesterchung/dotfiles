@@ -1,5 +1,6 @@
 #!/bin/bash
-export ANT_HOME=/usr/local/opt/ant
+echo load android env
+export ANT_HOME=/usr/local/opt/ant/libexec/
 export MAVEN_HOME=/usr/local/opt/maven
 export GRADLE_HOME=/usr/local/opt/gradle
 export ANDROID_HOME=/usr/local/opt/android-sdk
