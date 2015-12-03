@@ -7,7 +7,6 @@ set background=dark
 colorscheme solarized
 let g:colors_name="solarized"
 
-
 if has("mac") || has("macunix")
     set gfn=Source\ Code\ Pro:h11,Menlo:h11
 endif
